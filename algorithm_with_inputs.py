@@ -55,12 +55,17 @@ def convolve2D(image, kernel, padding=0, strides=1):
 
 
 if __name__ == '__main__':
+    print("Welcome! This is an algorithm that will detect edges in an image. It makes really cool line art out of any square image.")
+    
+    pathToImage = input("Please type the path to your SQUARE image with forward slashes. For example, \"C:/users/name/downloads/image.jpg\"")
+    pathToOutput = input("Please type the path to your output in the same format as the input. You can name the output image whatever you like!")
+    
     # Grayscale Image
-    image = processImage('Image.jpeg')
+    image = processImage(pathToImage)
 
     # Edge Detection Kernel
     kernel = np.array([[-1, -1, -1], [-1, 8, -1], [-1, -1, -1]])
 
     # Convolve and Save Output
     output = convolve2D(image, kernel, padding=2)
-    cv2.imwrite('output.jpg', output)
+    cv2.imwrite(pathToOutput, output)
