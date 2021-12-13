@@ -59,8 +59,8 @@ if __name__ == '__main__':
     image = processImage('Image.jpeg')
 
     # Edge Detection Kernel
-    kernel = np.array([[1, 1, 1], [1, 1, 1], [1, 1, 1]])
+    kernel = np.array([[-1, -1, -1], [-1, 8, -1], [-1, -1, -1]])
 
     # Convolve and Save Output
     output = convolve2D(image, kernel, padding=2)
-    cv2.imwrite('2DConvolved.jpg', output)
+    cv2.imwrite('output.jpg', output)
